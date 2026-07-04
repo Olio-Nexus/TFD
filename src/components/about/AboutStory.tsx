@@ -84,7 +84,7 @@ export default function AboutStory() {
                 <Image
                   src={slide.image}
                   alt={slide.title}
-                  fill
+                  fill sizes="523px"
                   className="object-cover"
                   priority
                 />
@@ -188,7 +188,7 @@ export default function AboutStory() {
                   <Image
                     src={slide.image}
                     alt={slide.title}
-                    fill
+                    fill sizes="(max-width: 1024px) 100vw, 523px"
                     className="object-cover"
                   />
                 </div>

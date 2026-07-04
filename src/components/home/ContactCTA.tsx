@@ -4,7 +4,11 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 
+import { useQuoteModal } from "@/components/ui/QuoteModal";
+
 export default function ContactCTA() {
+  const { openQuoteModal } = useQuoteModal();
+
   return (
     <section className="relative overflow-hidden bg-white py-16 md:py-20 lg:py-24">
       {/* Background Waves */}
@@ -88,7 +92,7 @@ export default function ContactCTA() {
 
               <p className="mt-4 text-[16px] leading-[25px] text-[#B8B8B8]">
                 No long forms. Share your site address, target depths and
-                required services, and we'll come back within 24 hours with an
+                required services, and we&apos;ll come back within 24 hours with an
                 itemized quote and mobilisation window.
               </p>
 
@@ -101,6 +105,7 @@ export default function ContactCTA() {
               <div className="mt-10">
                 <button
                   type="button"
+                  onClick={openQuoteModal}
                   className="w-full rounded-[2px] bg-[#E53935] px-6 py-3 font-mono text-[14px] font-medium uppercase tracking-[0.4px] text-[#F3F1ED] transition hover:opacity-90"
                 >
                   OPEN ENQUIRY FORM

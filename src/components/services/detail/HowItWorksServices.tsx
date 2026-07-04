@@ -6,7 +6,7 @@ type Step = {
   description: string;
 };
 
-interface HowItWorksProps {
+export interface HowItWorksProps {
   steps: Step[];
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,7 +30,7 @@ export default function CompanyIntro() {
             <Image
               src="/images/about-drilling.png"
               alt="TerraForma Drilling Rig"
-              fill
+              fill sizes="(max-width: 1024px) 100vw, 515px"
               priority
               className="object-cover"
             />
@@ -71,21 +72,21 @@ export default function CompanyIntro() {
             </p>
 
             <div className="flex items-center justify-center gap-2">
-              <Image
+              <img
                 src="/cert-1.svg"
                 alt="ISO 9001"
                 width={75}
                 height={98}
               />
 
-              <Image
+              <img
                 src="/cert-2.svg"
                 alt="ISO 14001"
                 width={75}
                 height={98}
               />
 
-              <Image
+              <img
                 src="/cert-3.svg"
                 alt="ISO 45001"
                 width={74}
@@ -133,25 +134,25 @@ export default function CompanyIntro() {
 
           {/* Content */}
           <div className="max-w-[693px] space-y-4 lg:mt-6 lg:space-y-6">
-            <p className="body">
+            <p className="body text-[16px]!">
               TerraForma Drilling is a geotechnical drilling contractor based in
               Sydney, NSW. We work with engineers, consultants, developers, and
               local councils, providing investigation drilling, SPT and DCP
               testing, environmental drilling, and monitoring bore installation.
             </p>
 
-            <p className="body">
+            <p className="body text-[16px]!">
               Our rig is a ute-mounted solid flight auger. That means we can get
               into places bigger rigs can&apos;t, such as tight suburban sites,
               sloped blocks, low clearance, you name it. It still does the job
               properly, just without all the access headaches.
             </p>
 
-            <p className="body">
+            <p className="body text-[16px]!">
               We&apos;re set up to meet Tier 1 project requirements. Our rig has
               full hydraulic interlocks and safety systems, follows a documented
               service schedule, and complete service records are available if
-              you need them. Whether you're doing a single-site investigation or
+              you need them. Whether you&apos;re doing a single-site investigation or
               a multi-location program, we operate to the standard your project
               demands.
             </p>
@@ -166,22 +167,22 @@ export default function CompanyIntro() {
                 </div>
 
                 <div className="flex flex-1 items-center justify-end gap-[8px]">
-                  <Image
-                    src="/cert-1.png"
+                  <img
+                    src="/cert-1.svg"
                     alt="ISO 9001"
                     width={65}
                     height={85}
                   />
 
-                  <Image
-                    src="/cert-2.png"
+                  <img
+                    src="/cert-2.svg"
                     alt="ISO 14001"
                     width={65}
                     height={85}
                   />
 
-                  <Image
-                    src="/cert-3.png"
+                  <img
+                    src="/cert-3.svg"
                     alt="ISO 45001"
                     width={65}
                     height={85}
@@ -199,7 +200,7 @@ export default function CompanyIntro() {
           {/* CTA */}
           <div className="mt-2 lg:mt-8">
             <Link
-              href="/about"
+              href="/about-us"
               className="
                 flex
                 h-[44px]

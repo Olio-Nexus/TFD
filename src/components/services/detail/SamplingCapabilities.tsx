@@ -10,7 +10,7 @@ type Card = {
   image: string;
 };
 
-interface SamplingCapabilitiesProps {
+export interface SamplingCapabilitiesProps {
   title: string;
   cards: Card[];
 }
@@ -168,7 +168,7 @@ const prevSlide = () => {
                       <Image
                         src={card.image}
                         alt={card.title}
-                        fill
+                        fill sizes="320px"
                         className="object-cover transition-transform duration-300"
                       />
 
@@ -200,7 +200,7 @@ const prevSlide = () => {
                   <Image
                     src={card.image}
                     alt={card.title}
-                    fill
+                    fill sizes="265px"
                     className="object-cover"
                   />
                 </div>

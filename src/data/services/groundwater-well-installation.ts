@@ -16,6 +16,8 @@ export const groundwaterWellInstallationSections = [
     data: {
       title: "What is a Groundwater well & Piezometer Installation?",
       highlight: "Piezometer Installation?",
+      image: "/services/gwi.png",
+      imageAlt: "Groundwater Well & Piezometer Installation",
       description1:
         "A monitoring bore, also called a groundwater monitoring well, is a borehole that monitors groundwater conditions and collects samples for environmental and geotechnical investigations. A piezometer measures groundwater levels and pressure within the subsurface.",
       description2:
@@ -142,25 +144,19 @@ export const groundwaterWellInstallationSections = [
           title: "Groundwater well Installation",
           description:
             "Monitoring bore construction supporting long-term environmental monitoring and groundwater investigation programmes.",
-          image: "/services/sample-1.png",
+          image: "/services/gwi-sample-1.png",
         },
         {
           title: "Piezometer Installation",
           description:
             "We provide piezometer installation services in Sydney and regional NSW to monitor groundwater levels, pressures, and subsurface conditions.",
-          image: "/services/sample-2.png",
+          image: "/services/gwi-sample-2.png",
         },
         {
           title: "Installed to Your Exact Specifications",
           description:
             "Construction of groundwater wells to specified depths, casing configurations, screen intervals, and project requirements.",
-          image: "/services/sample-3.png",
-        },
-        {
-          title: "Consultant-Led Assessment & Reporting",
-          description:
-            "The appointed consultant remains responsible for assessing, interpreting, and reporting groundwater data.",
-          image: "/services/sample-4.png",
+          image: "/services/gwi-sample-3.png",
         },
       ],
     },
@@ -223,6 +219,12 @@ export const groundwaterWellInstallationSections = [
           description:
             "We use ISO-certified management systems, maintain documented records, and provide WHS documentation to support safe, compliant project delivery.",
           icon: "/services/icons/sfa-5.svg",
+        },
+        {
+          title: "Complete Bore Construction Records",
+          description:
+            "Casing type, screen interval, filter pack placement, surface completion, and installation depth are recorded for every bore and handed directly to your nominated consultant on completion — ready for your monitoring programme and reporting requirements.",
+          icon: "/services/icons/sfa-6.svg",
         },
       ],
     },
@@ -293,13 +295,13 @@ export const groundwaterWellInstallationSections = [
     data: {
        regions: [
         { id: "sydney", name: "Sydney", top: "63%", left: "74%" },
-        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "70%" },
-        { id: "wollongong", name: "Wollongong & Illawarra", top: "77%", left: "69%" },
-        { id: "central-west", name: "Central West NSW", top: "49%", left: "47%" },
-        { id: "new-england", name: "New England & Northwest", top: "28%", left: "78%" },
-        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "40%" },
-        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "76%" },
-        { id: "southern", name: "Southern Tablelands", top: "73%", left: "64%" },
+        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "81%" },
+        { id: "wollongong", name: "Wollongong & Illawarra", top: "70%", left: "71%" },
+        { id: "central-west", name: "Central West NSW", top: "49%", left: "55%" },
+        { id: "new-england", name: "New England & Northwest", top: "35%", left: "60%" },
+        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "49%" },
+        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "86%" },
+        { id: "southern", name: "Southern Tablelands", top: "77%", left: "68%" },
       ],
     },
   },

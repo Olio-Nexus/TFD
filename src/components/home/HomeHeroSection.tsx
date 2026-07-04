@@ -3,27 +3,30 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
+import { useQuoteModal } from "@/components/ui/QuoteModal";
+
 const slides = [
   {
-    image: "/images/hero-1.png",
+    image: "/images/herobanner-1.png",
     label: "Solid Flight Auger Drilling",
   },
   {
-    image: "/images/hero-2.png",
+    image: "/images/herobanner-2.png",
     label: "Standard Penetration Testing",
   },
   {
-    image: "/images/hero-1.png",
+    image: "/images/herobanner-3.png",
     label: "Environmental Drilling",
   },
   {
-    image: "/images/hero-2.png",
+    image: "/images/herobanner-4.png",
     label: "Groundwater Well Installation",
   },
 ];
 
 export default function HomeHeroSection() {
   const [active, setActive] = useState(0);
+  const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,7 +37,7 @@ export default function HomeHeroSection() {
   }, []);
 
   return (
-    <section className="relative h-screen w-full overflow-hidden md:h-screen">
+    <section className="relative h-screen w-full overflow-hidden md:h-screen pt-[72px]">
       {/* Background Images */}
       {slides.map((slide, index) => (
         <div
@@ -56,7 +59,7 @@ export default function HomeHeroSection() {
       ======================================================= */}
       <div className="md:hidden relative z-20 h-full flex flex-col justify-center items-center px-5 py-5 pt-[95px] gap-8">
         {/* Content */}
-        <div className="flex flex-col gap-5 w-full max-w-[362px] text-center">
+        <div className="flex flex-col gap-5 w-full max-w-[362px] text-left">
           {/* Eyebrow */}
           <p className="font-mono text-[12px] leading-[23px] tracking-[1.4px] uppercase font-medium text-white">
             Geotechnical Drilling Contractor
@@ -76,7 +79,10 @@ export default function HomeHeroSection() {
             </p>
 
             <div className="flex flex-col gap-3 items-center">
-              <button className="btn-primary w-full h-[44px]">
+              <button
+                onClick={openQuoteModal}
+                className="btn-primary w-full h-[44px]"
+              >
                 Request a Quote
               </button>
 
@@ -139,7 +145,9 @@ export default function HomeHeroSection() {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="btn-primary">Request a Quote</button>
+            <button className="btn-primary" onClick={openQuoteModal}>
+              Request a Quote
+            </button>
             <button className="btn-glass">View Our Services</button>
           </div>
         </div>

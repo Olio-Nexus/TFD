@@ -1,10 +1,12 @@
 import Image from "next/image";
 
-interface OurProcessProps {
+export interface OurProcessProps {
   title: string;
   highlight: string;
   description1: string;
   description2: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 export default function OurProcess({
@@ -12,6 +14,8 @@ export default function OurProcess({
   highlight,
   description1,
   description2,
+  image = "/images/sfa.png",
+  imageAlt = "Solid Flight Auger Drilling",
 }: OurProcessProps) {
   const [beforeHighlight, afterHighlight] = title.split(highlight);
 
@@ -83,14 +87,14 @@ export default function OurProcess({
             </svg>
 
             {/* Image */}
-            <div className="overflow-hidden rounded-[8px] border border-[rgba(86,85,79,0.5)]">
+            <div className="relative h-[680px] overflow-hidden rounded-[8px] border border-[rgba(86,85,79,0.5)]">
               <Image
-                src="/images/sfa.png"
-                alt="Solid Flight Auger Drilling"
-                width={1280}
-                height={680}
+                src={image}
+                alt={imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 1240px"
                 priority
-                className="h-[680px] w-full object-cover"
+                className="object-cover"
               />
             </div>
 
@@ -134,13 +138,13 @@ export default function OurProcess({
           </p>
 
           {/* Image */}
-          <div className="overflow-hidden rounded-[4px]">
+          <div className="relative h-[249px] overflow-hidden rounded-[4px]">
             <Image
-              src="/images/sfa.png"
-              alt="Solid Flight Auger Drilling"
-              width={362}
-              height={249}
-              className="h-[249px] w-full object-cover"
+              src={image}
+              alt={imageAlt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 362px"
+              className="object-cover"
             />
           </div>
 

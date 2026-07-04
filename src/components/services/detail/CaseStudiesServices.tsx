@@ -14,7 +14,8 @@ export type CaseStudy = {
   href: string;
 };
 
-type CaseStudiesProps = {
+export type CaseStudiesProps = {
+  eyebrow?: string;
   heading: {
     title: string;
     highlight: string;
@@ -28,19 +29,20 @@ type CaseStudiesProps = {
 ========================= */
 
 export default function CaseStudiesServices({
+  eyebrow = "Case Study Snippet",
   heading,
   featuredStudy,
   secondaryStudy,
 }: CaseStudiesProps) {
   return (
-    <section className="bg-[#F4F1EB] py-20 md:py-20">
+    <section className="bg-[#F4F1EB] py-12 md:py-20">
       <div className="container-custom">
         {/* Header */}
         <div className="mb-14 flex flex-col gap-5">
           <div className="flex items-center gap-4">
             <div className="h-px w-5 bg-[#E53935]" />
             <span className="font-mono font-medium uppercase tracking-[1.4px] text-[#E53935] md:text-[14px] text-[12px]">
-              Case Study Snippet
+              {eyebrow}
             </span>
           </div>
 

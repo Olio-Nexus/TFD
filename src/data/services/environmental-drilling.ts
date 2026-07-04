@@ -16,6 +16,8 @@ export const environmentalDrillingSections = [
     data: {
       title: "What is Environmental Drilling?",
       highlight: "Environmental Drilling?",
+      image: "/services/env-drill.png",
+      imageAlt: "Environmental Drilling",
       description1:
         "Environmental drilling involves creating boreholes to investigate subsurface conditions, collect soil and groundwater samples, and install monitoring infrastructure during environmental site investigations. It is commonly used for contaminated land assessments, Phase 2 Detailed Site Investigation (DSI), groundwater investigations, and environmental monitoring programs.",
       description2:
@@ -138,31 +140,31 @@ export const environmentalDrillingSections = [
           title: "Phase 2 Detailed Site Investigation (DSI)",
           description:
             "Borehole drilling completed according to Phase 2 ESA investigation plans and consultant requirements.",
-          image: "/services/sample-2.png",
+          image: "/services/env-sample-1.png",
         },
         {
           title: "Groundwater Investigation & Monitoring",
           description:
             "Drilling support for groundwater investigations, environmental monitoring, and installation of monitoring bores and piezometers.",
-          image: "/services/sample-3.png",
+          image: "/services/env-sample-2.png",
         },
         {
           title: "Acid Sulfate Soil Investigations",
           description:
             "Site investigation drilling supporting acid sulfate soil assessments and environmental compliance requirements.",
-          image: "/services/sample-4.png",
+          image: "/services/env-sample-3.png",
         },
         {
           title: "VENM & ENM Investigations",
           description:
             "Environmental drilling supporting Virgin Excavated Natural Material (VENM) and Excavated Natural Material (ENM) assessments, soil classification, and environmental site investigation requirements across Sydney and NSW.",
-          image: "/services/sample-5.png",
+          image: "/services/env-sample-4.png",
         },
         {
           title: "Chain of Custody & Consultant-Led Sampling",
           description:
             "We execute environmental drilling to your investigation requirements. Sampling, chain of custody, laboratory coordination, interpretation, and reporting remain with your consultant. Equipment is decontaminated between boreholes in accordance with site requirements.",
-          image: "/services/sample-6.png",
+          image: "/services/env-sample-5.png",
         },
       ],
     },
@@ -225,6 +227,12 @@ export const environmentalDrillingSections = [
           description:
             "ISO-certified management systems, documented maintenance records, and WHS documentation ensure consistent and compliant project delivery.",
           icon: "/services/icons/sfa-5.svg",
+        },
+        {
+          title: "Decontamination Between Every Borehole",
+          description:
+            "Equipment is decontaminated between boreholes in accordance with site investigation requirements — preventing cross-contamination between sample locations and maintaining the integrity of your investigation data.",
+          icon: "/services/icons/sfa-6.svg",
         },
       ],
     },
@@ -295,13 +303,13 @@ export const environmentalDrillingSections = [
     data: {
        regions: [
         { id: "sydney", name: "Sydney", top: "63%", left: "74%" },
-        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "70%" },
-        { id: "wollongong", name: "Wollongong & Illawarra", top: "77%", left: "69%" },
-        { id: "central-west", name: "Central West NSW", top: "49%", left: "47%" },
-        { id: "new-england", name: "New England & Northwest", top: "28%", left: "78%" },
-        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "40%" },
-        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "76%" },
-        { id: "southern", name: "Southern Tablelands", top: "73%", left: "64%" },
+        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "81%" },
+        { id: "wollongong", name: "Wollongong & Illawarra", top: "70%", left: "71%" },
+        { id: "central-west", name: "Central West NSW", top: "49%", left: "55%" },
+        { id: "new-england", name: "New England & Northwest", top: "35%", left: "60%" },
+        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "49%" },
+        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "86%" },
+        { id: "southern", name: "Southern Tablelands", top: "77%", left: "68%" },
       ],
     },
   },

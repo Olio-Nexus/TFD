@@ -5,7 +5,7 @@ type SpecRow = {
   details: string;
 };
 
-interface SpecsProps {
+export interface SpecsProps {
   title: string;
   highlight: string;
   specs: SpecRow[];

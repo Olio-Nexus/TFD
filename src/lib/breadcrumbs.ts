@@ -3,17 +3,37 @@ export const breadcrumbs = {
     about: [
       {
         label: "Company",
-        href: "/company",
+        href: "/about-us",
       },
       {
         label: "About",
       },
     ],
 
+    ourTeam: [
+      {
+        label: "Company",
+        href: "/about-us",
+      },
+      {
+        label: "Our Team",
+      },
+    ],
+
+    clientsCertifications: [
+      {
+        label: "Company",
+        href: "/about-us",
+      },
+      {
+        label: "Our Clients & Certifications",
+      },
+    ],
+
     safety: [
       {
         label: "Company",
-        href: "/company",
+        href: "/about-us",
       },
       {
         label: "Safety",

@@ -6,7 +6,7 @@ type Feature = {
   icon: string;
 };
 
-interface WhyChooseUsProps {
+export interface WhyChooseUsProps {
   features: Feature[];
 }
 

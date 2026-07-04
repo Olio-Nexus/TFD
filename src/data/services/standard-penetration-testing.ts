@@ -16,6 +16,8 @@ export const sptSections = [
     data: {
       title: "What is Standard Penetration Testing (SPT)?",
       highlight: "Testing (SPT)?",
+      image: "/services/spt-hero.png",
+      imageAlt: "Standard Penetration Testing",
       description1:
         "The Standard Penetration Test (SPT) is a common on-site method for testing soil. It measures soil resistance by counting the number of hammer blows required to drive a sampler into the ground. The resulting SPT N-values help engineers assess foundation design, site classification, and ground conditions.",
       description2:
@@ -135,25 +137,25 @@ export const sptSections = [
           title: "SPT N-Value Data",
           description:
             "Our calibrated Standard Penetration Testing gives N-value data that engineers use to assess soil strength, density, and subsurface conditions.",
-          image: "/services/sample-1.png",
+          image: "/services/spt-sample-1.png",
         },
         {
           title: "Field Records & Borehole Information",
           description:
             "We provide SPT N-value data, borehole records, and field observations in a clear and organised format to support engineering assessment and project documentation.",
-          image: "/services/sample-2.png",
+          image: "/services/spt-sample-2.png",
         },
         {
           title: "Testing to Your Investigation Requirements",
           description:
             "We conduct SPT testing at the depths and intervals you specify, in accordance with your project requirements and bore plans.",
-          image: "/services/sample-3.png",
+          image: "/services/spt-sample-3.png",
         },
         {
           title: "Tight-Access SPT Investigations",
           description:
             "Our small ute-mounted drilling platform allows Standard Penetration Testing in Sydney locations where larger rigs cannot reach.",
-          image: "/services/sample-4.png",
+          image: "/services/spt-sample-4.png",
         },
       ],
     },
@@ -216,6 +218,12 @@ export const sptSections = [
           description:
             "We use ISO-certified management systems, follow maintenance schedules, and provide WHS documentation to support compliant project delivery across Greater Sydney and regional NSW.",
           icon: "/services/icons/sfa-5.svg",
+        },
+        {
+          title: "Transparent Field Records",
+          description:
+            "Every SPT test is documented with depth, blow count, N-value, and soil description recorded at the time of testing. Field records are handed directly to your nominated engineer or consultant on completion — no delays, no chasing.",
+          icon: "/services/icons/sfa-6.svg",
         },
       ],
     },
@@ -286,13 +294,13 @@ export const sptSections = [
     data: {
        regions: [
         { id: "sydney", name: "Sydney", top: "63%", left: "74%" },
-        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "70%" },
-        { id: "wollongong", name: "Wollongong & Illawarra", top: "77%", left: "69%" },
-        { id: "central-west", name: "Central West NSW", top: "49%", left: "47%" },
-        { id: "new-england", name: "New England & Northwest", top: "28%", left: "78%" },
-        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "40%" },
-        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "76%" },
-        { id: "southern", name: "Southern Tablelands", top: "73%", left: "64%" },
+        { id: "newcastle", name: "Newcastle & Hunter", top: "42%", left: "81%" },
+        { id: "wollongong", name: "Wollongong & Illawarra", top: "70%", left: "71%" },
+        { id: "central-west", name: "Central West NSW", top: "49%", left: "55%" },
+        { id: "new-england", name: "New England & Northwest", top: "35%", left: "60%" },
+        { id: "riverina", name: "Riverina & Murray", top: "66%", left: "49%" },
+        { id: "north-coast", name: "North Coast NSW", top: "30%", left: "86%" },
+        { id: "southern", name: "Southern Tablelands", top: "77%", left: "68%" },
       ],
     },
   },

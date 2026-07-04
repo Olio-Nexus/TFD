@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+/* eslint-disable @next/next/no-img-element */
 const certifications = [
   {
     iso: "ISO 9001:2015",
@@ -88,7 +87,7 @@ export default function CertificationsSection() {
                       : ""
                   }`}
                 >
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.iso}
                     width={66}
@@ -121,7 +120,7 @@ export default function CertificationsSection() {
                 key={item.iso}
                 className="flex items-center gap-3 rounded-[4px] bg-white p-3"
               >
-                <Image
+                <img
                   src={item.image}
                   alt={item.iso}
                   width={66}

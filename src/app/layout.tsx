@@ -6,6 +6,9 @@ import "@fontsource/onest/600.css";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer"
+import { QuoteModalProvider } from "@/components/ui/QuoteModal";
+import SmoothScroll from "@/components/ui/SmoothScroll";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,9 +36,14 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header/>
-        <main>{children}</main>
-        <Footer />
+        <QuoteModalProvider>
+          <SmoothScroll>
+            <Header/>
+            <main>{children}</main>
+            <Footer />
+            <ScrollReveal />
+          </SmoothScroll>
+        </QuoteModalProvider>
         </body>
     </html>
   );

@@ -11,7 +11,7 @@ type AccordionItem = {
   image: string;
 };
 
-interface EngineeringProjectsProps {
+export interface EngineeringProjectsProps {
   title: string;
   highlight: string;
   items: AccordionItem[];
@@ -171,7 +171,7 @@ export default function EngineeringProjects({
                           <Image
                             src={item.image}
                             alt={item.title}
-                            fill
+                            fill sizes="(max-width: 1024px) 100vw, 612px"
                             className="object-cover"
                           />
                         </div>
@@ -210,7 +210,7 @@ export default function EngineeringProjects({
                 key={activeItem?.image}
                 src={activeItem?.image || ""}
                 alt={activeItem?.title || ""}
-                fill
+                fill sizes="612px"
                 priority
                 className="object-cover transition-all duration-500"
               />

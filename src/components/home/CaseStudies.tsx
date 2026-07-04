@@ -109,7 +109,7 @@ export default function CaseStudies() {
             <Image
               src={left.image}
               alt={left.title}
-              fill
+              fill sizes="28vw"
               className="object-cover"
             />
 
@@ -127,7 +127,7 @@ export default function CaseStudies() {
             <Image
               src={current.image}
               alt={current.title}
-              fill
+              fill sizes="61vw"
               priority
               className="object-cover"
             />
@@ -158,7 +158,7 @@ export default function CaseStudies() {
             <Image
               src={right.image}
               alt={right.title}
-              fill
+              fill sizes="28vw"
               className="object-cover"
             />
 
@@ -186,7 +186,7 @@ export default function CaseStudies() {
                   <Image
                     src={study.image}
                     alt={study.title}
-                    fill
+                    fill sizes="308px"
                     className="object-cover"
                   />
                 </div>

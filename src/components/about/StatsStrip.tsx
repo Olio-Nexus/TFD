@@ -55,7 +55,7 @@ export default function StatsStrip() {
          
       </div>
 
-      <div className="relative z-10 mx-auto max-w-full">
+      <div className="relative z-10 mx-auto w-full max-w-[1440px]">
         {/* ================= Desktop ================= */}
         <div className="hidden md:flex items-center justify-between px-20 py-[72px]">
             {stats.map((item, index) => (

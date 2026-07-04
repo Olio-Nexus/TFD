@@ -49,7 +49,7 @@ function BlogCard({ post }: { post: Post }) {
           <Image
             src={post.image}
             alt={post.title}
-            fill
+            fill sizes="(max-width: 1024px) 100vw, 413px"
             className="object-cover transition duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/10" />

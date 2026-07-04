@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
             for your site
           </h2>
 
-          <p className="body mt-3">
+          <p className="body text-[16px]! mt-3">
             Field-ready, technically compliant and built for the realities of
             NSW site investigation work.
           </p>
@@ -120,7 +120,7 @@ export default function WhyChooseUs() {
                   {feature.title}
                 </h3>
 
-                <p className="body mt-3 max-w-[520px] md:mt-4">
+                <p className="body text-[16px]! mt-3 max-w-[520px] md:mt-4">
                   {feature.description}
                 </p>
               </div>

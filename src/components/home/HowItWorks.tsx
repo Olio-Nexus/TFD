@@ -9,7 +9,7 @@ type Step = {
 const steps: Step[] = [
   {
     number: "01",
-    title: "Certified Quality Systems",
+    title: "Send Your Scope of Work",
     description:
       "Send us your project address, target depths, required services, and any access constraints. You don’t need to fill out long forms; just an email or phone call is enough to get started.",
   },

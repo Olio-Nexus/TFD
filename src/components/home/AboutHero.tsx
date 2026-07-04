@@ -21,7 +21,7 @@ export default function AboutHero() {
         <Image
           src="/images/about-banner.png"
           alt="Geotechnical drilling"
-          fill
+          fill sizes="100vw"
           priority
           className="object-cover"
         />

@@ -7,7 +7,7 @@ const locations = [
   {
     id: "sydney",
     label: "Sydney",
-    x: "92%",
+    x: "90%",
     y: "69%",
   },
   {
@@ -26,13 +26,13 @@ const locations = [
     id: "central-west",
     label: "Central West NSW",
     x: "83%",
-    y: "69%",
+    y: "65%",
   },
   {
     id: "new-england",
     label: "New England & Northwest",
     x: "88%",
-    y: "60%",
+    y: "58%",
   },
   {
     id: "riverina",
@@ -50,7 +50,7 @@ const locations = [
     id: "southern-tablelands",
     label: "Southern Tablelands",
     x: "87%",
-    y: "76%",
+    y: "71%",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function NSWCoverageSection() {
   return (
     <section className="overflow-hidden bg-[#EFEAE1]">
       {/* ========================= */}
-      {/* DESKTOP - UNCHANGED */}
+      {/* DESKTOP  */}
       {/* ========================= */}
       <div className="hidden lg:block">
         <div className="mx-auto max-w-full px-5 lg:px-[80px] py-[80px]">
@@ -126,26 +126,59 @@ export default function NSWCoverageSection() {
                 />
 
                 <div
-                  className="absolute z-20 transition-all duration-500 ease-out"
+                  className="pointer-events-none absolute z-20 transition-[top,left] duration-500 ease-out"
                   style={{
                     left: active.x,
                     top: active.y,
-                    transform: "translate(-100%, -100%)",
+                    transform: "translate(-50%, -50%)",
                   }}
                 >
-                  <div className="absolute left-1/2 top-1/2 h-[108px] w-[108px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/50 blur-md" />
+                  {/* Pin frame — Figma: Frame 30285 (108 x 108) */}
+                  <div className="relative h-[108px] w-[108px]">
+                    {/* Glow — Figma: Ellipse 2 */}
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 rounded-full"
+                      style={{
+                        background:
+                          "radial-gradient(59.42% 59.42% at 50% 48.7%, #2D2D2D 3.68%, #FFFFFF 78.19%)",
+                        opacity: 0.4,
+                      }}
+                    />
 
-                  <div className="absolute left-1/2 top-1/2 h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E53935]/30" />
-
-                  <div className="absolute left-1/2 top-1/2 h-[72px] w-[72px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E53935]/20 animate-ping" />
-
-                  <Image
-                    src="/maps/pin.svg"
-                    alt="Location"
-                    width={12}
-                    height={15}
-                    className="relative z-10"
-                  />
+                    {/* Marker — Figma: location_on (21.74 x 25.25, centered) */}
+                    <svg
+                      aria-hidden
+                      width="22"
+                      height="26"
+                      viewBox="0 0 22 26"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >
+                      <mask
+                        id="coveragePinMask"
+                        style={{ maskType: "alpha" }}
+                        maskUnits="userSpaceOnUse"
+                        x="0"
+                        y="0"
+                        width="22"
+                        height="26"
+                      >
+                        <rect
+                          width="21.7403"
+                          height="25.2468"
+                          fill="#D9D9D9"
+                        />
+                      </mask>
+                      <g mask="url(#coveragePinMask)">
+                        <path
+                          d="M12.0889 11.3985C12.4606 11.027 12.6465 10.5789 12.6465 10.0544C12.6465 9.52979 12.4606 9.08166 12.0889 8.70997C11.7174 8.33846 11.2694 8.1527 10.7448 8.1527C10.2202 8.1527 9.77218 8.33846 9.40067 8.70997C9.02898 9.08166 8.84313 9.52979 8.84313 10.0544C8.84313 10.5789 9.02898 11.027 9.40067 11.3985C9.77218 11.77 10.2202 11.9558 10.7448 11.9558C11.2694 11.9558 11.7174 11.77 12.0889 11.3985ZM10.7448 22.101C8.09739 19.8071 6.11219 17.6722 4.78919 15.6965C3.46619 13.7206 2.80469 11.9066 2.80469 10.2545C2.80469 7.82695 3.58988 5.86165 5.16026 4.35859C6.73082 2.85553 8.59233 2.104 10.7448 2.104C12.8973 2.104 14.7588 2.85553 16.3293 4.35859C17.8997 5.86165 18.6849 7.82695 18.6849 10.2545C18.6849 11.9066 18.0234 13.7206 16.7004 15.6965C15.3774 17.6722 13.3922 19.8071 10.7448 22.101Z"
+                          fill="white"
+                        />
+                      </g>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>

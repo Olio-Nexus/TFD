@@ -27,7 +27,7 @@ const services = [
     title: "Environmental Drilling",
     slug: "environmental-drilling",
     description:
-      "We handle drilling for environmental investigations, including Phase 2 Environmental Site Assessment (ESA) programs, contaminated land assessments, and acid sulfate soil investigations.",
+      "We handle drilling for environmental investigations, including Phase 2 Detailed Site Investigation (DSI) programs, contaminated land assessments, and acid sulfate soil investigations. TerraForma Drilling provides the borehole while your environmental consultant manages sampling and logging. We always follow your chain-of-custody and site protocols.",
     image: "/images/service-3.png",
   },
   {
@@ -66,7 +66,7 @@ export default function OurServices() {
             <span className="text-[var(--accent)]">Drilling Services</span>
           </h2>
 
-          <p className="body mt-2 lg:mt-3 max-w-[876px]">
+          <p className="body mt-2 lg:mt-3 max-w-[876px] text-[16px]!">
             We do specialist drilling and in-situ testing across Sydney and NSW.
             Most jobs, we can be on site within 24 hours.
           </p>
@@ -118,22 +118,24 @@ export default function OurServices() {
                     </div>
                   </div>
 
-                  <h3 className="font-heading text-[20px] font-semibold leading-6">
+                  <h3 className="font-heading text-[20px]! font-semibold leading-6">
                     {service.title}
                   </h3>
                 </button>
 
                 {isActive && (
                   <div className="pb-4">
-                    <p className="body mb-4">{service.description}</p>
+                    <p className="body mb-4 text-[16px]!">
+                      {service.description}
+                    </p>
 
-                    <div className="mb-4 overflow-hidden rounded">
+                    <div className="relative mb-4 h-[249px] overflow-hidden rounded">
                       <Image
                         src={service.image}
                         alt={service.title}
-                        width={362}
-                        height={249}
-                        className="w-full object-cover"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 362px"
+                        className="object-cover"
                       />
                     </div>
 

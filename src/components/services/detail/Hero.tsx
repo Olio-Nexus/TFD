@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 
-interface HeroProps {
+export interface HeroProps {
   title: string;
   highlight: string;
   description: string;

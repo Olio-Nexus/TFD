@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUp, ArrowDown } from "lucide-react";
-import clsx from "clsx";
+import { ArrowDown, ArrowUp } from "lucide-react";
 
 type FAQ = {
   question: string;
@@ -36,7 +35,7 @@ const faqs: FAQ[] = [
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
-  const toggleItem = (index: number) => {
+  const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? -1 : index);
   };
 
@@ -44,69 +43,109 @@ export default function FaqSection() {
     <section className="bg-white py-12 md:py-20">
       <div className="container-custom">
         {/* Header */}
-        <div className="mb-10 md:mb-14">
-          <div className="mb-5 flex items-center gap-4">
-            <span className="h-px w-5 bg-[var(--accent)]" />
-            <span className="tag">FAQs</span>
+        <div className="flex flex-col gap-4 md:gap-5">
+          <div className="flex items-center gap-3 md:gap-4">
+            <span className="h-px w-3 md:w-5 bg-[#E53935]" />
+
+            <span className="font-mono text-[12px] md:text-[14px] font-medium uppercase tracking-[1.4px] text-[#E53935]">
+              FAQs
+            </span>
           </div>
 
-          <h2 className="font-heading text-4xl font-semibold tracking-[-0.04em] text-[var(--text)] md:text-5xl">
-            Common{" "}
-            <span className="text-[var(--accent)]">Questions</span>
+          <h2 className="font-heading text-[24px] leading-[30px] tracking-[-1px] font-semibold text-[#1A1917] md:text-[48px] md:leading-[56px] md:tracking-[-2px]">
+            Common <span className="text-[#E53935]">Questions</span>
           </h2>
         </div>
 
         {/* FAQ List */}
-        <div className="w-full">
+        <div className="mt-4 md:mt-14">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <div
-                key={faq.question}
-                className="border-b border-[#D1D1D1]"
+                key={`${faq.question}-${index}`}
+                className={`border-b border-[#D1D1D1] ${
+                  index === 0 ? "border-t" : ""
+                }`}
               >
                 <button
-                  onClick={() => toggleItem(index)}
-                  className="flex w-full items-start justify-between gap-4 py-6 md:py-8 text-left"
+                  onClick={() => toggleAccordion(index)}
+                  aria-expanded={isOpen}
+                  className="
+                    flex w-full items-start justify-between
+                    gap-3 py-4 md:py-8
+                    text-left
+                  "
                 >
-                  <div className="flex-1">
-                    <h3 className="font-heading text-lg font-semibold leading-7 tracking-[0.6px] text-[var(--text)] md:text-[20px]">
-                      {faq.question}
-                    </h3>
+                  <span
+                    className="
+                      flex-1
+                      font-heading
+                      font-semibold
+                      text-[#1A1917]
+                      text-[18px]
+                      leading-[24px]
+                      tracking-[-0.1px]
+                      md:text-[20px]
+                      md:leading-[28px]
+                      md:tracking-[0.6px]
+                    "
+                  >
+                    {faq.question}
+                  </span>
 
-                    <div
-                      className={clsx(
-                        "grid overflow-hidden transition-all duration-300 ease-in-out",
+                  <span
+                    className={`
+                      flex shrink-0 items-center justify-center
+                      transition-all duration-300
+                      h-6 w-6 rounded-full
+                      md:h-[42px] md:w-[42px]
+                      md:rounded-full
+                      ${
                         isOpen
-                          ? "grid-rows-[1fr] opacity-100 mt-3"
-                          : "grid-rows-[0fr] opacity-0"
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <p className="max-w-[974px] text-sm leading-6 text-[var(--muted)] md:text-base md:leading-[25px]">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Icon */}
-                  <div
-                    className={clsx(
-                      "flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full border transition-all duration-300 md:h-[42px] md:w-[42px]",
-                      isOpen
-                        ? "border-[var(--accent)] bg-[var(--accent)]"
-                        : "border-[rgba(86,85,79,0.8)] bg-transparent"
-                    )}
+                          ? "bg-[#E53935] border border-[#E53935]"
+                          : "border border-[rgba(26,25,23,0.2)] md:border-[rgba(86,85,79,0.8)]"
+                      }
+                    `}
                   >
                     {isOpen ? (
-                      <ArrowUp size={18} className="text-white" />
+                      <ArrowUp
+                        className="h-3.5 w-3.5 md:h-5 md:w-5 text-white"
+                        strokeWidth={2}
+                      />
                     ) : (
-                      <ArrowDown size={18} className="text-[var(--text)]" />
+                      <ArrowDown
+                        className="h-3.5 w-3.5 md:h-5 md:w-5 text-[#5F5E5D]"
+                        strokeWidth={2}
+                      />
                     )}
-                  </div>
+                  </span>
                 </button>
+
+                <div
+                  className={`
+                    overflow-hidden transition-all duration-300
+                    ${
+                      isOpen
+                        ? "max-h-[500px] opacity-100 pb-4 md:pb-8"
+                        : "max-h-0 opacity-0"
+                    }
+                  `}
+                >
+                  <p
+                    className="
+                      max-w-[974px]
+                      font-body
+                      whitespace-pre-line
+                      text-[#56554F]
+                      text-[16px]
+                      leading-[26px]
+                    "
+                  >
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             );
           })}

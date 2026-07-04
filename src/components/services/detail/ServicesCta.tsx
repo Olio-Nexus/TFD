@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-interface ServicesCTAProps {
+export interface ServicesCTAProps {
   title: string;
   highlight: string;
   description: string;

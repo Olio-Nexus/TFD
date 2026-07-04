@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 
 import { services } from "@/data/services";
 import ServiceRenderer from "@/components/services/ServiceRenderer";
+import JsonLd from "@/components/seo/JsonLd";
+import { organizationSchema, type JsonLdSchema } from "@/lib/seo";
 
 type Props = {
   params: Promise<{
@@ -49,10 +51,17 @@ export default async function Page({
     notFound();
   }
 
+  const schemas: JsonLdSchema[] = [organizationSchema];
+  if (service.schema) schemas.push(service.schema);
+  if (service.faqSchema) schemas.push(service.faqSchema);
+
   return (
-    <ServiceRenderer
-      sections={service.sections}
-    />
+    <>
+      <JsonLd schemas={schemas} />
+      <ServiceRenderer
+        sections={service.sections}
+      />
+    </>
   );
 }
 

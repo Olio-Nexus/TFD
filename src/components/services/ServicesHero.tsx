@@ -120,7 +120,7 @@ export default function ServicesHero() {
           <Image
             src="/images/geotechnical-drilling.png"
             alt="Geotechnical drilling excavation"
-            fill
+            fill sizes="(max-width: 1024px) 100vw, 701px"
             priority
             className="object-cover"
           />

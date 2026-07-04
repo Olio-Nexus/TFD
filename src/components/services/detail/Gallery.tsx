@@ -10,7 +10,7 @@ interface GalleryImage {
   alt: string;
 }
 
-interface GalleryProps {
+export interface GalleryProps {
   title: string;
   images: GalleryImage[];
 }
@@ -201,7 +201,7 @@ function GalleryCard({
       <Image
         src={image.src}
         alt={image.alt}
-        fill
+        fill sizes="498px"
         priority={priority}
         className="object-cover"
       />

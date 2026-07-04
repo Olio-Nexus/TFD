@@ -21,7 +21,7 @@ export default function ServiceRenderer({
   sections,
 }: Props) {
   return (
-    <main>
+    <>
       {sections.map((section, index) => {
         const key = `${section.type}-${index}`;
 
@@ -101,7 +101,7 @@ export default function ServiceRenderer({
             return null;
         }
       })}
-    </main>
+    </>
   );
 }
      

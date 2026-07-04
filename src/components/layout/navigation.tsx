@@ -31,7 +31,7 @@ export const navigation: Record<string, NavGroup> = {
         image: "/services/environmental.png",
       },
       {
-        title: "Monitoring Bore & Piezometer Installation",
+        title: "Groundwater well Installation",
         href: "/services/groundwater-well-installation",
         image: "/services/groundwater.png",
       },
@@ -44,33 +44,33 @@ export const navigation: Record<string, NavGroup> = {
     items: [
       {
         title: "Geotechnical Consultants",
-        href: "/industries/geotechnical",
+        href: "/industries/geotechnical-consultants",
         image: "/images/service-1.png",
       },
       {
         title: "Commercial",
         href: "/industries/commercial",
-        image: "/images/industries/commercial.jpg",
+        image: "/images/industry-1.png",
       },
       {
         title: "Environmental Consultant",
-        href: "/industries/environmental",
-        image: "/images/industries/environmental.jpg",
+        href: "/industries/environmental-consultant",
+        image: "/images/industry-3.png",
       },
       {
         title: "Government Bodies & Utilities",
-        href: "/industries/government",
-        image: "/images/industries/government.jpg",
+        href: "/industries/government-bodies-utilities",
+        image: "/images/industry-4.png",
       },
       {
         title: "Civil & Infrastructure",
-        href: "/industries/civil",
-        image: "/images/industries/civil.jpg",
+        href: "/industries/civil-infrastructure",
+        image: "/images/industry-5.png",
       },
       {
         title: "Mining & Resources",
-        href: "/industries/mining",
-        image: "/images/industries/mining.jpg",
+        href: "/industries/mining-resources",
+        image: "/images/industry-6.png",
       },
     ],
   },
@@ -85,62 +85,54 @@ export const navigation: Record<string, NavGroup> = {
       },
       {
         title: "NSW",
-        href: "/areas-we-serve/NSW",
+        href: "/areas-we-serve/nsw",
       },
       {
         title: "Wollongong & Illawarra",
-        href: "/areas-we-serve/wollongong-illawarra",
+        href: "/areas-we-serve/wollongong",
       },
       {
         title: "Newcastle & Hunter",
-        href: "/areas-we-serve/newcastle-hunter",
+        href: "/areas-we-serve/newcastle",
       },
       {
-        title: "New England & Northwest ",
-        href: "/areas-we-serve/new-england-northwest ",
+        title: "New England & Northwest",
+        href: "/areas-we-serve/new-england-northwest",
       },
       {
         title: "Central West NSW",
         href: "/areas-we-serve/central-west-nsw",
       },
       {
-        title: "Riverina & Murray ",
-        href: "/areas-we-serve/riverina-murray ",
+        title: "Riverina & Murray",
+        href: "/areas-we-serve/riverina-murray",
       },
       {
-        title: "North Coast NSW ",
-        href: "/areas-we-serve/north-coast-nsw ",
+        title: "North Coast NSW",
+        href: "/areas-we-serve/north-coast-nsw",
       },
       {
-        title: "Southern Tablelands ",
-        href: "/areas-we-serve/southern-tablelands ",
+        title: "Southern Tablelands",
+        href: "/areas-we-serve/southern-tablelands",
       },
     ],
   },
 
   Company: {
-    href: "/about",
+    href: "/about-us",
     showImage: false,
     items: [
       {
         title: "About Us",
-        href: "/about",
+        href: "/about-us",
       },
       {
         title: "Our Team",
-        href: "/about/team",
-      },
-      {
-        title: "Careers",
-        href: "/about/career",
-      },
-      {
-        title: "News & Events",
-        href: "/about/news-and-events",
+        href: "/about/our-team",
       },
       {
         title: "Our Clients & Certifications",
-        href: "/about/clients-and-certifications",
+        href: "/about/our-clients-certifications",
       },
     ],
   },

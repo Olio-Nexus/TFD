@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,19 +24,19 @@ const services = [
 const industries = [
   {
     title: "Commercial Development",
-    slug: "commercial-development",
+    slug: "commercial",
   },
   {
     title: "Geotechnical Engineers",
-    slug: "geotechnical-engineers",
+    slug: "geotechnical-consultants",
   },
   {
     title: "Environmental Consultants",
-    slug: "environmental-consultants",
+    slug: "environmental-consultant",
   },
   {
     title: "Government & Utilities",
-    slug: "government-utilities",
+    slug: "government-bodies-utilities",
   },
   {
     title: "Civil & Infrastructure",
@@ -48,10 +49,9 @@ const industries = [
 ];
 
 const company = [
-  "About Terraforma",
-  "Contact Us",
-  "Projects",
-  "Case Studies",
+  { title: "About Terraforma", href: "/about-us" },
+  { title: "Contact Us", href: "/contact" },
+  { title: "Case Studies", href: "/projects" },
 ];
 
 export default function Footer() {
@@ -134,7 +134,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="text-[14px] leading-6 tracking-[0.5px] text-white/60"
                 >
                   About Terraforma
@@ -152,7 +152,7 @@ export default function Footer() {
 
               <li>
                 <Link
-                  href="/case-studies"
+                  href="/projects"
                   className="text-[14px] leading-6 tracking-[0.5px] text-white/60"
                 >
                   Case Studies
@@ -301,7 +301,7 @@ export default function Footer() {
               {/* Company */}
               <div>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="mb-6 block text-[14px] font-medium uppercase tracking-[0.5px] text-[#F3F1ED99]"
                 >
                   Company
@@ -309,12 +309,12 @@ export default function Footer() {
 
                 <ul className="space-y-4">
                   {company.map((item) => (
-                    <li key={item}>
+                    <li key={item.href}>
                       <Link
-                        href="/about"
+                        href={item.href}
                         className="text-sm tracking-[0.5px] transition-colors hover:text-white"
                       >
-                        {item}
+                        {item.title}
                       </Link>
                     </li>
                   ))}
@@ -367,19 +367,19 @@ export default function Footer() {
 
             {/* Certifications */}
             <div className="flex flex-wrap gap-4 lg:gap-5">
-              <Image
+              <img
                 src="/cert-1.svg"
                 alt="Quality Certification"
                 width={116}
                 height={153}
               />
-              <Image
+              <img
                 src="/cert-2.svg"
                 alt="Environmental Certification"
                 width={116}
                 height={153}
               />
-              <Image
+              <img
                 src="/cert-3.svg"
                 alt="Safety Certification"
                 width={116}

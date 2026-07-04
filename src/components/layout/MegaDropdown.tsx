@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { useEffect,useState } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 
@@ -27,13 +27,18 @@ export default function MegaDropdown({
 }: MegaDropdownProps) {
   const pathname = usePathname();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevItems, setPrevItems] = useState(items);
   const hasImage = showImage === false ? false : items.some((item) => item.image);
   const isActive =
   pathname === href || pathname.startsWith(`${href}/`);
 
-  useEffect(() => {
-  setActiveIndex(0);
-}, [items]);
+  // Reset the highlighted item when the menu items change. Done during render
+  // (React's "adjust state on prop change" pattern) instead of in an effect,
+  // so the reset happens before paint with no extra render or flash.
+  if (items !== prevItems) {
+    setPrevItems(items);
+    setActiveIndex(0);
+  }
 
   return (
     <div className="group relative">

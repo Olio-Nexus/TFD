@@ -8,7 +8,7 @@ export interface FAQ {
   answer: string;
 }
 
-interface FaqSectionProps {
+export interface FaqSectionProps {
   faqs: FAQ[];
   title?: string;
   highlight?: string;
