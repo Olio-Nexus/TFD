@@ -1,31 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import clsx from "clsx";
 
 import { useQuoteModal } from "@/components/ui/QuoteModal";
 
 const slides = [
   {
-    image: "/images/herobanner-1.png",
+    image: "/images/herobanner-1.webp",
     label: "Solid Flight Auger Drilling",
   },
   {
-    image: "/images/herobanner-2.png",
+    image: "/images/herobanner-2.webp",
     label: "Standard Penetration Testing",
   },
   {
-    image: "/images/herobanner-3.png",
+    image: "/images/herobanner-3.webp",
     label: "Environmental Drilling",
   },
   {
-    image: "/images/herobanner-4.png",
+    image: "/images/herobanner-4.webp",
     label: "Groundwater Well Installation",
   },
 ];
 
 export default function HomeHeroSection() {
   const [active, setActive] = useState(0);
+
+  const [loaded, setLoaded] = useState<Set<number>>(() => new Set([0]));
   const { openQuoteModal } = useQuoteModal();
 
   useEffect(() => {
@@ -36,6 +39,16 @@ export default function HomeHeroSection() {
     return () => clearInterval(interval);
   }, []);
 
+  // Preload the active slide and the next one for a smooth crossfade.
+  useEffect(() => {
+    setLoaded((prev) => {
+      const next = new Set(prev);
+      next.add(active);
+      next.add((active + 1) % slides.length);
+      return next;
+    });
+  }, [active]);
+
   return (
     <section className="relative h-screen w-full overflow-hidden md:h-screen pt-[72px]">
       {/* Background Images */}
@@ -44,15 +57,24 @@ export default function HomeHeroSection() {
           key={index}
           className={clsx(
             "absolute inset-0 transition-opacity duration-1000",
-            active === index ? "opacity-100 z-10" : "opacity-0 z-0"
+            active === index ? "opacity-100" : "opacity-0"
           )}
-          style={{
-            backgroundImage: `linear-gradient(rgba(26,25,23,0.6), rgba(26,25,23,0.6)), url(${slide.image})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+        >
+          {loaded.has(index) && (
+            <Image
+              src={slide.image}
+              alt={slide.label}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
+        </div>
       ))}
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 z-10 bg-[#1A1917]/60" />
 
       {/* =======================================================
           MOBILE 
