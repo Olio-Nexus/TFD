@@ -97,7 +97,8 @@ const inputClasses =
 
 function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [mounted, setMounted] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
@@ -135,13 +136,48 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   // Reset the "thank you" state whenever the modal is reopened.
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset thank-you state when the modal is reopened
-    if (open) setSubmitted(false);
+    if (open) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- reset submit state when the modal is reopened
+      setStatus("idle");
+      setErrorMessage("");
+    }
   }, [open]);
 
-  function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      source: "popup",
+      fullName: String(formData.get("fullName") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      phone: String(formData.get("phone") ?? "").trim(),
+      siteLocation: String(formData.get("siteLocation") ?? "").trim(),
+      scope: String(formData.get("scope") ?? "").trim(),
+    };
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? "Something went wrong. Please try again.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong.");
+    }
   }
 
   if (!mounted || !open) return null;
@@ -220,10 +256,26 @@ function QuoteModal({ open, onClose }: { open: boolean; onClose: () => void }) {
           <div className="mt-3 flex flex-col gap-3">
             <button
               type="submit"
-              className="flex h-11 w-full items-center justify-center gap-3 rounded-[2px] bg-[var(--accent)] font-mono text-[16px] font-medium uppercase leading-6 tracking-[0.4px] text-[#F3F1ED] transition-opacity hover:opacity-90"
+              disabled={status === "sending"}
+              className="flex h-11 w-full items-center justify-center gap-3 rounded-[2px] bg-[var(--accent)] font-mono text-[16px] font-medium uppercase leading-6 tracking-[0.4px] text-[#F3F1ED] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {submitted ? "Thank You" : "Request a Quote"}
+              {status === "sending"
+                ? "Sending…"
+                : status === "success"
+                  ? "Thank You"
+                  : "Request a Quote"}
             </button>
+
+            {status === "success" && (
+              <p className="text-center text-[13px] font-medium leading-[18px] text-green-400">
+                Thanks — your enquiry has been sent. We&rsquo;ll be in touch within 24 hours.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-center text-[13px] font-medium leading-[18px] text-red-400">
+                {errorMessage}
+              </p>
+            )}
 
             <p className="text-center text-[12px] font-light leading-[18px] text-[#B2B2B2]">
               We use your details only to respond to your enquiry and never share your

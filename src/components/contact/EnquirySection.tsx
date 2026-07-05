@@ -48,11 +48,44 @@ const inputClasses =
   "w-full rounded-[4px] border border-[#D1D1D1] bg-white px-3 text-[16px] leading-[140%] text-[#1A1917] placeholder:text-[rgba(86,85,79,0.8)] outline-none transition-colors focus:border-[var(--accent)]";
 
 export default function EnquirySection() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSubmitted(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      source: "contact",
+      fullName: String(formData.get("fullName") ?? "").trim(),
+      email: String(formData.get("email") ?? "").trim(),
+      phone: String(formData.get("phone") ?? "").trim(),
+      siteLocation: String(formData.get("siteLocation") ?? "").trim(),
+      scope: String(formData.get("scope") ?? "").trim(),
+    };
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error ?? "Something went wrong. Please try again.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong.");
+    }
   }
 
   return (
@@ -105,10 +138,26 @@ export default function EnquirySection() {
 
               <button
                 type="submit"
-                className="mt-2 flex h-[44px] w-full items-center justify-center gap-3 rounded-[4px] bg-[var(--accent)] font-mono text-[16px] font-medium uppercase leading-[24px] tracking-[0.4px] text-[#F3F1ED] transition-opacity hover:opacity-90"
+                disabled={status === "sending"}
+                className="mt-2 flex h-[44px] w-full items-center justify-center gap-3 rounded-[4px] bg-[var(--accent)] font-mono text-[16px] font-medium uppercase leading-[24px] tracking-[0.4px] text-[#F3F1ED] transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {submitted ? "Thank You" : "Request a Quote"}
+                {status === "sending"
+                  ? "Sending…"
+                  : status === "success"
+                    ? "Thank You"
+                    : "Request a Quote"}
               </button>
+
+              {status === "success" && (
+                <p className="text-center text-[13px] font-medium leading-[18px] text-green-700">
+                  Thanks — your enquiry has been sent. We&rsquo;ll be in touch within 24 hours.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-center text-[13px] font-medium leading-[18px] text-red-600">
+                  {errorMessage}
+                </p>
+              )}
 
               <p className="text-center text-[12px] font-light leading-[18px] text-[#56554F]">
                 We respond to all enquiries within 24 hours. Your details are used only to
