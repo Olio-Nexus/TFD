@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+
+import { areaHrefForRegion } from "@/data/areas/regionLinks";
 
 type Region = {
   id: string;
@@ -133,13 +136,9 @@ export default function WhereWeDrill({
           <div className="order-2 px-5 lg:order-1 lg:px-0">
             {regions.map((region) => {
               const isActive = active === region.id;
+              const href = areaHrefForRegion(region.id);
 
-              return (
-                <button
-                  key={region.id}
-                  onMouseEnter={() => setActive(region.id)}
-                  onClick={() => setActive(region.id)}
-                  className="
+              const className = `
                     group
                     relative
                     flex
@@ -151,8 +150,10 @@ export default function WhereWeDrill({
                     lg:border-b
                     lg:border-[#d8d2ca]
                     lg:py-6
-                  "
-                >
+                  `;
+
+              const content = (
+                <>
                   <span
                     className={`absolute bottom-0 left-0 bg-[#E53935] transition-all duration-300 ${
                       isActive ? "w-[70px] lg:w-full" : "w-0"
@@ -172,6 +173,26 @@ export default function WhereWeDrill({
                   >
                     <ArrowUpRight size={14} />
                   </span>
+                </>
+              );
+
+              return href ? (
+                <Link
+                  key={region.id}
+                  href={href}
+                  onMouseEnter={() => setActive(region.id)}
+                  className={className}
+                >
+                  {content}
+                </Link>
+              ) : (
+                <button
+                  key={region.id}
+                  onMouseEnter={() => setActive(region.id)}
+                  onClick={() => setActive(region.id)}
+                  className={className}
+                >
+                  {content}
                 </button>
               );
             })}

@@ -194,8 +194,8 @@ export const wollongongSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Wollongong & Illawarra",
-      highlight: "Wollongong & Illawarra",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "From coastal developments and industrial facilities to infrastructure projects, TerraForma Drilling supports geotechnical and environmental investigations across Wollongong and the Illawarra region. We also provide drilling services across Sydney and regional NSW.",
       regions: [

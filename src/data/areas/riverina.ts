@@ -191,8 +191,8 @@ export const riverinaSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Riverina & Murray",
-      highlight: "Riverina & Murray",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling provides geotechnical and environmental investigations for agricultural, industrial, infrastructure, and renewable energy projects across Riverina & Murray. We also offer drilling services in other metropolitan and regional areas of New South Wales.",
       regions: [

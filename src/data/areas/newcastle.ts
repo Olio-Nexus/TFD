@@ -200,8 +200,8 @@ export const newcastleSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Newcastle & Hunter",
-      highlight: "Newcastle & Hunter",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling provides geotechnical investigations, environmental drilling, and site investigation support throughout Newcastle, the Hunter Region, and surrounding areas. Our team also mobilises to projects across Greater Sydney and regional New South Wales.",
       regions: [

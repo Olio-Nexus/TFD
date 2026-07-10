@@ -178,8 +178,8 @@ export const centralWestSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Central West NSW",
-      highlight: "Central West NSW",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling supports geotechnical and environmental investigations for agricultural, mining, infrastructure, and renewable energy projects throughout Central West NSW. We also offer drilling services in other metropolitan and regional areas of New South Wales.",
       regions: [

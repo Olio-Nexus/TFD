@@ -209,8 +209,8 @@ export const nswSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across NSW",
-      highlight: "Across NSW",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW",
       description:
         "TerraForma Drilling helps consultants, developers, contractors, and project teams with geotechnical and environmental investigations, drilling, testing, and groundwater monitoring across New South Wales.",
       regions: [

@@ -103,9 +103,9 @@ export const sydneySections: AreaSection[] = [
   {
     type: "whyChooseUs",
     data: {
-      tag: "Why Choose TerraForma",
-      title: "Why Sydney Project Teams Choose TerraForma",
-      highlight: "TerraForma",
+      tag: "Site Access & Mobilisation",
+      title: "Sydney Site Access & Mobilisation Capability",
+      highlight: "Mobilisation Capability",
       description:
         "Sydney's dense urban environment often restricts access to conventional drilling rigs. TerraForma's purpose-built ute-mounted drilling platform reaches challenging sites without large equipment, extensive setup, or unnecessary disruption.",
       items: [
@@ -230,8 +230,8 @@ export const sydneySections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Greater NSW",
-      highlight: "Across Greater NSW",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling helps consultants, developers, contractors, and government teams with geotechnical investigations, environmental drilling, testing, and groundwater monitoring across Greater Sydney. We also offer drilling services throughout regional New South Wales.",
       regions: [

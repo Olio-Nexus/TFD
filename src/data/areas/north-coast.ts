@@ -198,8 +198,8 @@ export const northCoastSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across North Coast NSW",
-      highlight: "North Coast NSW",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling supports a wide range of projects in North Coast NSW, from coastal developments and environmental monitoring to regional infrastructure. We also offer drilling services in other metropolitan and regional areas of New South Wales.",
       regions: [

@@ -192,8 +192,8 @@ export const southernTablelandsSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across Southern Tablelands",
-      highlight: "Southern Tablelands",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "Whether it's transport infrastructure, renewable energy projects, rural developments, or growing regional communities, TerraForma Drilling supports a wide range of investigation needs across the Southern Tablelands. We also offer drilling services in other metropolitan and regional areas of New South Wales.",
       regions: [

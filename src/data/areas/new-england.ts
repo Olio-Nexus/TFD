@@ -193,8 +193,8 @@ export const newEnglandSections: AreaSection[] = [
   {
     type: "whereWeDrill",
     data: {
-      title: "Geotechnical & Environmental Drilling Across New England & Northwest NSW",
-      highlight: "New England & Northwest NSW",
+      title: "Geotechnical & Environmental Drilling Across ",
+      highlight: "NSW Regions",
       description:
         "TerraForma Drilling offers geotechnical and environmental investigations for agricultural, mining, energy, infrastructure, and regional development projects in New England & Northwest NSW. We also work on projects in other parts of New South Wales.",
       regions: [
