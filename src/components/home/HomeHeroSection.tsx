@@ -8,19 +8,19 @@ import { useQuoteModal } from "@/components/ui/QuoteModal";
 
 const slides = [
   {
-    image: "/images/herobanner-1.webp",
+    image: "/images/Hero-1.webp",
     label: "Solid Flight Auger Drilling",
   },
   {
-    image: "/images/herobanner-2.webp",
+    image: "/images/Hero-2.webp",
     label: "Standard Penetration Testing",
   },
   {
-    image: "/images/herobanner-3.webp",
+    image: "/images/Hero-3.webp",
     label: "Environmental Drilling",
   },
   {
-    image: "/images/herobanner-4.webp",
+    image: "/images/Hero-4.webp",
     label: "Groundwater Well Installation",
   },
 ];
