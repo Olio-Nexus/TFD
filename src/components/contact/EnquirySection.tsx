@@ -41,7 +41,7 @@ const FIELDS = [
 const CONTACT_DETAILS: { label: string; value: string; href?: string }[] = [
   { label: "Phone", value: "(02) 7239 8878", href: "tel:+61272398878" },
   { label: "Email", value: "sales@tfdrilling.com.au", href: "mailto:sales@tfdrilling.com.au" },
-  { label: "Based In", value: "Wetherill Park, Sydney NSW 2164" },
+  { label: "Based In", value: "level 17/123 Pitt St, Sydney NSW 2000, Australia" },
 ];
 
 const inputClasses =

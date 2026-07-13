@@ -28,9 +28,10 @@ const pageSchema: JsonLdSchema = {
     email: "sales@tfdrilling.com.au",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Wetherill Park",
+      streetAddress: "Level 17, 123 Pitt Street",
+      addressLocality: "Sydney",
       addressRegion: "NSW",
-      postalCode: "2164",
+      postalCode: "2000",
       addressCountry: "AU",
     },
     openingHoursSpecification: [
