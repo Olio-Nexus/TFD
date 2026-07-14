@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 
 // Route Handlers are not cached by default; POST is always dynamic.
 export const runtime = "nodejs";
@@ -26,33 +25,6 @@ function escapeHtml(value: string) {
     .replace(/'/g, "&#39;");
 }
 
-let transporter: nodemailer.Transporter | null = null;
-
-function getTransporter() {
-  if (transporter) return transporter;
-
-  const host = process.env.SMTP_HOST;
-  const port = Number(process.env.SMTP_PORT ?? 587);
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-
-  if (!host || !user || !pass) {
-    throw new Error(
-      "SMTP is not configured. Set SMTP_HOST, SMTP_USER and SMTP_PASS in your environment.",
-    );
-  }
-
-  transporter = nodemailer.createTransport({
-    host,
-    port,
-    // Port 465 uses implicit TLS; everything else (587/25) upgrades via STARTTLS.
-    secure: port === 465,
-    auth: { user, pass },
-  });
-
-  return transporter;
-}
-
 export async function POST(request: Request) {
   let data: ContactPayload;
 
@@ -62,7 +34,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body." }, { status: 400 });
   }
 
-  // Validate required fields.
   const missing = REQUIRED_FIELDS.filter((field) => !String(data[field] ?? "").trim());
   if (missing.length > 0) {
     return NextResponse.json(
@@ -111,18 +82,45 @@ export async function POST(request: Request) {
     </div>
   `;
 
-  try {
-    const to = process.env.CONTACT_TO ?? "sales@tfdrilling.com.au";
-    const from = process.env.SMTP_FROM ?? process.env.SMTP_USER!;
+  // Only RESEND_API_KEY is required from the env (set as a Cloudflare secret).
+  // from/to fall back to production values; MAIL_FROM must be a Resend-verified domain.
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.MAIL_FROM ?? "website@tfdrilling.com.au";
+  const to = process.env.LEAD_EMAIL ?? "sales@tfdrilling.com.au";
 
-    await getTransporter().sendMail({
-      from,
-      to,
-      replyTo: String(data.email).trim(),
-      subject: `New Enquiry (${source}) — ${String(data.fullName).trim()}`,
-      text: textBody,
-      html: htmlBody,
+  if (!apiKey) {
+    console.error("Resend is not configured. Set RESEND_API_KEY.");
+    return NextResponse.json(
+      { error: "Email service is not configured. Please try again later." },
+      { status: 500 },
+    );
+  }
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `TF Drilling <${from}>`,
+        to: [to],
+        reply_to: String(data.email).trim(),
+        subject: `New Enquiry (${source}) — ${String(data.fullName).trim()}`,
+        text: textBody,
+        html: htmlBody,
+      }),
     });
+
+    if (!res.ok) {
+      const detail = await res.text();
+      console.error(`Resend API error ${res.status}: ${detail}`);
+      return NextResponse.json(
+        { error: "Something went wrong sending your enquiry. Please try again." },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json({ ok: true });
   } catch (error) {
